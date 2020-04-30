@@ -24,3 +24,8 @@ name. This arrangement was done so that it improves the accuracy of the classifi
 
 ## Classification Model:
 We are now creating models which can best fit the data, some of them being K-nearestneighbours and RandomForests classifier
+
+## References:
+References:
+ https://raphaelvallat.com/bandpower.html
+ https://www.sciencedirect.com/science/article/pii/S0957417410005695
