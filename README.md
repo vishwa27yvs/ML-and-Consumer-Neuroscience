@@ -22,8 +22,32 @@ that event. Depending on these labels, we grouped all events with similar rating
 same rating we grouped the events which were of the same subject along with the question
 name. This arrangement was done so that it improves the accuracy of the classification.
 
+## Feature Extraction:
+We used python libraries such as sklearn, numpy and pandas for data analysis and processing.
+We used the loadmat function from sklearn to load our mat event files. Each event was a 33 x
+2000 matrix, representing data for 33 different channels for 2s, as data is sampled every 1ms.
+After observing frontal alpha asymmetry we shall majorly focus on the data from the channels
+F1,F2,F3,F4,F11,F12 (frontal lobe).
+To perform EEG signal processing we decomposed all signals into distinct frequency bands,
+delta (1-3)Hz, theta (3.5,7.5)Hz , alpha (7.5,13)Hz and beta(14,30)Hz. The signals that we shall
+consider for modelling behaviour are theta, alpha and beta.
+By using and plotting Welch's periodogram we get the average bandpower for that signal. We
+computed the total power and found out relative theta power, relative beta power and relative
+alpha power. Using the Multitaper spectral analysis method we found the relative average
+band power. These were the final set of features which we shall try to classify on. MNE
+extensions were used for the same.
+
 ## Classification Model:
-We are now creating models which can best fit the data, some of them being K-nearestneighbours and RandomForests classifier
+After looking at several similar research observations SVM, K nearest neighbours have been
+accurately successful in their predictions on EEG data. The data frame has been resized and
+normalized wherever required and we have used a 80%-20% train test split. We are still working
+on developing other features and models to improve the accuracy of the model. Till now, as we
+have a multiclass classification data we have made use of following algorithms and a brief
+description.:-
+K-Nearest Neighbours : Used K-NN with 2 neighbors and euclidean metric for distance.
+Random Forests : Random Forest Model with 100 estimators, activated bootstrap and used ‘sqrt’
+metric for feature selection.
+Logistic Regression : Simple logistic regression metric used was accuracy.
 
 ## References:
 References:
